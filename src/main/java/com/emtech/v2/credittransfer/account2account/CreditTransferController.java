@@ -202,8 +202,15 @@ public class CreditTransferController {
                         } else {
                             System.out.println("Crediting of Account " + Account + " with Amount Ksh." + TranAmount + " Failed!");
                         }
-                        data = CreditorName + "," + CreditorName + "," + TxnStatus + "," + CreditTranFinResponse + "," + CreditStan;
+                        data = "" + CreditorName + "," + TxnStatus + "," + CreditTranFinResponse + "," + CreditStan + "," + OrgnlMsgId + "";
                         DbMethods.dbWork(updatequery, 5, data);
+                        System.out.println("===== DATA TO UPDATE =====");
+                        System.out.println("CreditorName: " + CreditorName);
+                        System.out.println("TxnStatus: " + TxnStatus);
+                        System.out.println("CreditTranFinResponse: " + CreditTranFinResponse);
+                        System.out.println("CreditStan: *****************************************************************************************" + CreditStan);
+                        System.out.println("Final Data String: " + data);
+                        System.out.println("==========================");
                         System.out.println("\n\n...............................................................................................................\nEnd of Credit Customer's A/C for incoming : Message ID :: " + OrgnlMsgId + "\n...............................................................................................................\n\n");
                     } else if (TxnStatus.equalsIgnoreCase("RJCT")) {
                         System.out.println("\n\n...............................................................................................................\nStart Reversals : Message ID :: " + OrgnlMsgId + "\n...............................................................................................................\n\n");
