@@ -98,7 +98,7 @@ public class Transfer implements Runnable, ISOResponseListener {
       ISOMsg m = new ISOMsg();
       tr.setStan(formatedInt);
       m.setMTI("1200");
-      m.set(2, acc);
+      m.set(2, "IPSL"+formatedInt);
       m.set(3, "400000");
       m.set(4, formatField4(amount));
       m.set(11, formatedInt);
